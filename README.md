@@ -9,6 +9,6 @@ I'm Anil Reddy — a data enthusiast and AI explorer from India 🇮🇳
 - Machine Learning and Artificial Intelligence 🤖
 
 📫 Reach me:
-- 📧 your_email@example.com
+- 📧 peruguanilreddy6@gmail.com
 - 🌐 [LinkedIn](https://linkedin.com/in/yourprofile)
 

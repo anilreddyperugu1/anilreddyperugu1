@@ -1,3 +1,5 @@
+<img src="banner.png" alt="Banner" style="width:100%;" />
+
 # Hello World 👋
 
 I'm Anil Reddy — a data enthusiast and AI explorer from India 🇮🇳
@@ -9,6 +11,4 @@ I'm Anil Reddy — a data enthusiast and AI explorer from India 🇮🇳
 📫 Reach me:
 - 📧 your_email@example.com
 - 🌐 [LinkedIn](https://linkedin.com/in/yourprofile)
-
-![Anil's GitHub stats](https://github-readme-stats.vercel.app/api?username=anilreddyperugu1&show_icons=true&theme=radical)
 

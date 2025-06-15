@@ -1,4 +1,4 @@
-<img src="cover.jpg" alt="Banner" style="width:100%;" />
+<img src="cover.png" alt="Banner" style="width:90%;" />
 
 # Hello World 👋
 

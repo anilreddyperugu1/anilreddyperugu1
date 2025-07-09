@@ -10,5 +10,5 @@ I'm Anil Reddy — a data enthusiast and AI explorer from India 🇮🇳
 
 📫 Reach me:
 - 📧 peruguanilreddy6@gmail.com
-- 🌐 [LinkedIn](https://linkedin.com/in/yourprofile)
+- 🌐 https://www.linkedin.com/in/anilreddy-perugu-aa8a0a36b/
 

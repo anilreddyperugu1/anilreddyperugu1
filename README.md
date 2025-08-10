@@ -1,20 +1,22 @@
-## Hi 👋, I'm [Anil Reddy Perugu](https://github.com/anilreddyperugu1/anilreddyperugu1)💝<img src="https://komarev.com/ghpvc/?username=anilreddyperugu1&label=Profile%20views&color=0e75b6&style=flat" alt="profile views" /><img align="right" alt="Coding" width="220" src="https://user-images.githubusercontent.com/74038190/218265814-3084a4ba-809c-4135-afc0-8685d0f634b3.gif">
+## Hi 👋, I'm [Anil Reddy Perugu](https://github.com/anilreddyperugu1/anilreddyperugu1)💝<img align="right" alt="Coding" width="210" src="https://user-images.githubusercontent.com/74038190/218265814-3084a4ba-809c-4135-afc0-8685d0f634b3.gif">
 
 
 * 🧑‍💻 Software Engineer at [HCLTech](https://www.hcltech.com/).                                                                                                      
 * 🐍 Proficient in Python/ AI/ML Development.                                                                                                                
 * 📚 Currently diving deep into Advanced ANI Workflows and AGI.                                                                                               
 * 🌐 Visit my [Github Portfolio](https://github.com/anilreddyperugu1?tab=repositories) to explore my projects.                                                
-* 📧 Reach me via [Email](peruguanilreddy6@gmail.com) or connect on [Linkedin](https://www.linkedin.com/in/anil-reddy-perugu-aa8a0a36b/)                      
+* 📧 Reach me via [Email](peruguanilreddy6@gmail.com) or connect on [Linkedin](https://www.linkedin.com/in/anil-reddy-perugu-aa8a0a36b/).                  
 * 📍 Feel free to reachout for collaborations and queries.
 
 ---
 
 <div align='center'>
   
-## 📊 GitHub Stats
+## 📊 GitHub Stats    
 
 </div>
+<p align='center'>
+  <img align="center" src="https://komarev.com/ghpvc/?username=anilreddyperugu1&label=Profile%20views&color=0e75b6&style=flat" alt="profile views" />
 <p align="center">
   <img height="150" src="https://github-readme-stats.vercel.app/api?username=anilreddyperugu1&show_icons=true&theme=radical" />
   <img height="150" src="https://github-readme-streak-stats.herokuapp.com/?user=anilreddyperugu1&theme=radical" />
@@ -38,7 +40,7 @@
 
 <div align="center">
 
-  ## Language and Coding🔥
+  ## 🔥Language and Coding
   
 <p align='center'>
   <img height="150" src="https://github-readme-stats.vercel.app/api/top-langs/?username=anilreddyperugu1&layout=compact&theme=radical" />
@@ -57,4 +59,4 @@
 
 ---
 
-💡 *"Code. Learn. Repeat. Every day is a new chance to grow."*
+💡 *"Code. Learn. Repeat. Every day is a new chance to build."*

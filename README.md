@@ -1,4 +1,4 @@
-## Hi 👋, I'm [Anil Reddy Perugu](https://github.com/anilreddyperugu1/anilreddyperugu1)💝<img align="right" alt="Coding" width="210" src="https://user-images.githubusercontent.com/74038190/218265814-3084a4ba-809c-4135-afc0-8685d0f634b3.gif">
+## Hi 👋, I'm [Anil Reddy Perugu](https://github.com/anilreddyperugu1/anilreddyperugu1)💝<img align="right" alt="Coding" width="220" src="https://user-images.githubusercontent.com/74038190/218265814-3084a4ba-809c-4135-afc0-8685d0f634b3.gif">
 
 
 * 🧑‍💻 Software Engineer at [HCLTech](https://www.hcltech.com/).                                                                                                      
@@ -7,6 +7,8 @@
 * 🌐 Visit my [Github Portfolio](https://github.com/anilreddyperugu1?tab=repositories) to explore my projects.                                                
 * 📧 Reach me via [Email](peruguanilreddy6@gmail.com) or connect on [Linkedin](https://www.linkedin.com/in/anil-reddy-perugu-aa8a0a36b/).                  
 * 📍 Feel free to reachout for collaborations and queries.
+
+
 
 ---
 

@@ -5,7 +5,7 @@
 * 🐍 Proficient in Python/ AI/ML Development.                                                                                                                
 * 📚 Currently diving deep into Advanced ANI Workflows and AGI.                                                                                               
 * 🌐 Visit my [Github Portfolio](https://github.com/anilreddyperugu1?tab=repositories) to explore my projects.                                                
-* 📧 Reach me via [Email](peruguanilreddy6@gmail.com) or connect on [Linkedin](https://www.linkedin.com/in/anil-reddy-perugu-aa8a0a36b/).
+* 📷 Reach me via [Email](mailto:peruguanilreddy6@gmail.com) or connect on [LinkedIn](https://www.linkedin.com/in/anil-reddy-perugu-aa8a0a36b/).
 * 📍 Based in Hyderabad, India.                  
 * 🚀 Feel free to reachout for collaborations and queries.
 

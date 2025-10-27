@@ -56,7 +56,7 @@
   
 </div>
 
-[![Repo 1](https://github-readme-stats.vercel.app/api/pin/?username=anilreddyperugu1&repo=ML-Projects&theme=tokyonight)](https://github.com/anilreddyperugu1/ML-Projects)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Repo 2](https://github-readme-stats.vercel.app/api/pin/?username=anilreddyperugu1&repo=Python-Projects&theme=tokyonight)](https://github.com/anilreddyperugu1/Python-Projects)
+[![Repo 1](https://github-readme-stats.vercel.app/api/pin/?username=anilreddyperugu1&repo=ML-Projects&theme=tokyonight)](https://github.com/anilreddyperugu1/ML-Projects)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Repo 2](https://github-readme-stats.vercel.app/api/pin/?username=anilreddyperugu1&repo=DL-Projects&theme=tokyonight)](https://github.com/anilreddyperugu1/Python-Projects)
 
 ---
 

@@ -50,7 +50,7 @@
 
 <p align="center">
 
-![Top Languages](https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/top-langs/?username=anilreddyperugu1&layout=compact&theme=radical&langs_count=8&cache_seconds=86400&v=2)
+![Languages](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=anilreddyperugu1&theme=radical)
 
 </p>
 
@@ -58,11 +58,15 @@
 
 <div align="center">
 
-  ## 📌 Pinned Repositories
-  
-</div>
+  ## 📌 Pinned Repositories  
 
-[![Repo 1](https://github-readme-stats.vercel.app/api/pin/?username=anilreddyperugu1&repo=ML-Projects&theme=tokyonight)](https://github.com/anilreddyperugu1/ML-Projects)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Repo 2](https://github-readme-stats.vercel.app/api/pin/?username=anilreddyperugu1&repo=DL-Projects&theme=tokyonight)](https://github.com/anilreddyperugu1/DL-Projects)
+<p align="center">
+
+[![ML Projects](https://img.shields.io/badge/ML--Projects-GitHub-blue?style=for-the-badge&logo=github)](https://github.com/anilreddyperugu1/ML-Projects)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[![DL Projects](https://img.shields.io/badge/DL--Projects-GitHub-purple?style=for-the-badge&logo=github)](https://github.com/anilreddyperugu1/DL-Projects)
+
+</p>
 
 ---
 

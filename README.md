@@ -46,11 +46,13 @@
 
 <div align="center">
 
-  ## 🔥Language and Coding
-  
-<p align='center'>
-  <img height="150" src="https://github-readme-stats.vercel.app/api/top-langs/?username=anilreddyperugu1&layout=compact&theme=radical" />
-</div>
+## 🔥 Language and Coding  
+
+<p align="center">
+
+![Top Languages](https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/top-langs/?username=anilreddyperugu1&layout=compact&theme=radical&langs_count=8&cache_seconds=86400&v=2)
+
+</p>
 
 ---
 

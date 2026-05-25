@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anilreddy Perugu – AI/ML Engineer</title>
+  <title>Anil Reddy Perugu – AI/ML Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,17 +31,23 @@
     }
 
     /* ══════════════════════════════
-       PAGE LAYOUT — sidebar + main
-       side by side, flush to bg
+       PAGE LAYOUT
     ══════════════════════════════ */
     .page {
       display: flex;
-      align-items: flex-start;
-      gap: 0;
+      flex-direction: column;
+      gap: 24px;
       min-height: 100vh;
       padding: 36px 40px 60px 40px;
       max-width: 1400px;
       margin: 0 auto;
+    }
+
+    .top-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+      width: 100%;
     }
 
     /* ══════════════════════════════
@@ -50,12 +56,9 @@
     .sidebar {
       width: 260px;
       flex-shrink: 0;
-      margin-right: 32px;
       display: flex;
       flex-direction: column;
       gap: 14px;
-      position: sticky;
-      top: 36px;
     }
 
     .photo-box {
@@ -100,7 +103,7 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      transition: all 0.18s;
+      transition: all 0.2s ease;
       text-decoration: none;
       border: none;
     }
@@ -111,7 +114,11 @@
       color: var(--text);
     }
 
-    .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+    .btn-outline:hover { 
+      border-color: var(--blue); 
+      color: var(--blue);
+      transform: scale(1.02);
+    }
 
     .btn-primary {
       background: var(--blue);
@@ -121,26 +128,14 @@
     .btn-primary:hover {
       background: var(--blue-dark);
       box-shadow: 0 4px 14px rgba(79,70,229,0.38);
-      transform: translateY(-1px);
+      transform: scale(1.02);
     }
 
     /* ══════════════════════════════
-       MAIN COLUMN
-       — NO white card wrapper
-       — content sits on gray bg
-    ══════════════════════════════ */
-    .main {
-      flex: 1;
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-    }
-
-    /* ══════════════════════════════
-       HERO — transparent bg, no card
+       HERO
     ══════════════════════════════ */
     .hero {
+      flex: 1;
       background: var(--white);
       border-radius: var(--radius);
       padding: 30px 36px 28px 36px;
@@ -241,9 +236,10 @@
     }
 
     /* ══════════════════════════════
-       STATS BAR — full width, no wrapper
+       STATS BAR
     ══════════════════════════════ */
     .stats {
+      width: 100%;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 14px;
@@ -299,39 +295,42 @@
        EXPLORE PILL
     ══════════════════════════════ */
     .explore-row {
-      display: flex;
-      align-items: center;
+      width: 100%;
     }
 
     .explore-pill {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 7px;
-      padding: 8px 20px;
-      border: 1.5px solid var(--blue-border);
+      padding: 12px 20px;
+      border: 1.5px solid var(--pill-border);
       border-radius: 999px;
-      font-size: 10.5px;
-      font-weight: 700;
+      font-size: 11px;
+      font-weight: 800;
       letter-spacing: 1.2px;
       text-transform: uppercase;
       color: var(--blue);
-      background: var(--white);
+      background: #f8f9fd;
+      width: 100%;
     }
 
     /* ══════════════════════════════
        TABS SECTION
     ══════════════════════════════ */
     .tabs-wrap {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-card);
-      overflow: hidden;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
     .tabs-nav {
       display: flex;
-      background: #f8f9fd;
-      border-bottom: 1.5px solid #eaecf4;
+      background: #e2e5f1;
+      border-radius: 999px;
+      padding: 6px;
+      width: 100%;
+      justify-content: space-between;
       overflow-x: auto;
       scrollbar-width: none;
     }
@@ -339,40 +338,49 @@
     .tabs-nav::-webkit-scrollbar { display: none; }
 
     .tab-btn {
-      flex-shrink: 0;
-      padding: 15px 22px;
-      font-size: 13.5px;
-      font-weight: 600;
+      flex: 1;
+      justify-content: center;
+      padding: 14px 22px;
+      font-size: 14px;
+      font-weight: 700;
       font-family: 'Inter', sans-serif;
-      color: var(--muted);
+      color: #4b5563;
       background: transparent;
       border: none;
+      border-radius: 999px;
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 7px;
       position: relative;
-      transition: color 0.15s;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s, color 0.2s, box-shadow 0.2s;
       white-space: nowrap;
     }
 
-    .tab-btn:hover { color: var(--blue); }
-
-    .tab-btn.active {
-      color: var(--blue);
-      background: var(--white);
+    /* Hover animation for buttons */
+    .tab-btn:hover { 
+      color: var(--blue); 
+      transform: scale(1.05);
     }
 
-    .tab-btn.active::after {
-      content: '';
-      position: absolute;
-      bottom: -1px; left: 0; right: 0;
-      height: 2.5px;
-      background: var(--blue);
-      border-radius: 2px 2px 0 0;
+    .tab-btn.active {
+      color: var(--text);
+      background: var(--white);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    
+    .tab-btn.active:hover {
+      transform: scale(1.03); /* Slightly less scaling for the active tab to maintain grounding */
     }
 
     /* ── PANES ── */
+    .pane-container {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+    }
+
     .pane { display: none; padding: 30px 36px; }
     .pane.active { display: block; }
 
@@ -664,12 +672,15 @@
        RESPONSIVE
     ══════════════════════════════ */
     @media (max-width: 860px) {
-      .page { flex-direction: column; padding: 20px 16px 48px; }
+      .page { padding: 20px 16px 48px; }
+      .top-row { flex-direction: column; }
       .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; position: static; }
       .photo-box { width: 120px; height: 120px; aspect-ratio: auto; }
       .stats { grid-template-columns: repeat(2, 1fr); }
       .pane { padding: 20px 20px; }
-      .hero { padding: 22px 22px; }
+      .hero { padding: 22px 22px; width: 100%; }
+      .tabs-nav { flex-wrap: wrap; border-radius: var(--radius); }
+      .tab-btn { flex: 1 1 auto; border-radius: var(--radius-sm); }
     }
 
     @media (max-width: 520px) {
@@ -683,44 +694,37 @@
 
 <div class="page">
 
-  <!-- ═══════ SIDEBAR ═══════ -->
-  <aside class="sidebar">
-
-    <div class="photo-box">
-      <!-- REPLACE src with your actual photo, e.g. src="photo.jpg" -->
-      <img src="my profile2.jpg" alt="Anilreddy Perugu"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-      <div class="photo-placeholder" style="display:none;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-          <circle cx="12" cy="7" r="4"/>
-        </svg>
-        Add your photo
+  <div class="top-row">
+    <aside class="sidebar">
+      <div class="photo-box">
+        <img src="your-photo.jpg" alt="Anilreddy Perugu"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div class="photo-placeholder" style="display:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          Add your photo
+        </div>
       </div>
-    </div>
 
-    <a class="btn btn-outline" href="AnilreddyResume.pdf" download>
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-        <polyline points="7 10 12 15 17 10"/>
-        <line x1="12" y1="15" x2="12" y2="3"/>
-      </svg>
-      Download Resume
-    </a>
+      <a class="btn btn-outline" href="AnilreddyPerugu_AIMLEngineer.pdf" download>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download Resume
+      </a>
 
-    <button class="btn btn-primary" onclick="alert('Connect your AI chatbot API here!')">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-      </svg>
-      AI Chat with Anil
-    </button>
+      <button class="btn btn-primary" onclick="alert('Connect your AI chatbot API here!')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        AI Chat with Anil
+      </button>
+    </aside>
 
-  </aside>
-
-  <!-- ═══════ MAIN ═══════ -->
-  <main class="main">
-
-    <!-- HERO -->
     <div class="hero">
       <h1 class="hero-name">Anilreddy Perugu</h1>
       <p class="hero-title">AI/ML Engineer &nbsp;·&nbsp; Deep Learning Specialist</p>
@@ -735,11 +739,11 @@
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           peruguanilreddy6@gmail.com
         </a>
-        <a class="pill" href="https://www.linkedin.com/in/anil-reddy-perugu-aa8a0a36b/" target="_blank">
+        <a class="pill" href="https://linkedin.com/in/YOUR-LINKEDIN" target="_blank">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           LinkedIn
         </a>
-        <a class="pill" href="https://github.com/anilreddyperugu1" target="_blank">
+        <a class="pill" href="https://github.com/YOUR-GITHUB" target="_blank">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           GitHub
         </a>
@@ -760,50 +764,47 @@
         </p>
       </div>
     </div>
+  </div>
 
-    <!-- STATS BAR — full width, no extra wrapper -->
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-val">3+</div>
-        <div class="stat-lbl">Years Experience</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val">40%</div>
-        <div class="stat-lbl">Automation Efficiency Gain</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val">95%</div>
-        <div class="stat-lbl">Model Accuracy</div>
-      </div>
-      <div class="stat">
-        <div class="stat-val">6+</div>
-        <div class="stat-lbl">Certifications Earned</div>
-      </div>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-val">3+</div>
+      <div class="stat-lbl">Years Experience</div>
     </div>
-
-    <!-- EXPLORE -->
-    <div class="explore-row">
-      <div class="explore-pill">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        Explore My Background
-      </div>
+    <div class="stat">
+      <div class="stat-val">40%</div>
+      <div class="stat-lbl">Automation Efficiency Gain</div>
     </div>
+    <div class="stat">
+      <div class="stat-val">95%</div>
+      <div class="stat-lbl">Model Accuracy</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">6+</div>
+      <div class="stat-lbl">Certifications Earned</div>
+    </div>
+  </div>
 
-    <!-- TABS -->
-    <div class="tabs-wrap">
+  <div class="explore-row">
+    <div class="explore-pill">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Explore My Background
+    </div>
+  </div>
 
-      <nav class="tabs-nav">
-        <button class="tab-btn active" onclick="switchTab(this,'exp')">💼 Industry Experience</button>
-        <button class="tab-btn" onclick="switchTab(this,'edu')">🎓 Education</button>
-        <button class="tab-btn" onclick="switchTab(this,'proj')">🚀 Projects</button>
-        <button class="tab-btn" onclick="switchTab(this,'skills')">🛠️ Skills</button>
-        <button class="tab-btn" onclick="switchTab(this,'certs')">🏆 Certifications</button>
-        <button class="tab-btn" onclick="switchTab(this,'gallery')">🖼️ Gallery</button>
-      </nav>
+  <div class="tabs-wrap">
 
-      <!-- EXPERIENCE -->
+    <nav class="tabs-nav">
+      <button class="tab-btn active" onclick="switchTab(this,'exp')">💼 Industry Experience</button>
+      <button class="tab-btn" onclick="switchTab(this,'edu')">🎓 Education</button>
+      <button class="tab-btn" onclick="switchTab(this,'proj')">🚀 Projects</button>
+      <button class="tab-btn" onclick="switchTab(this,'skills')">🛠️ Skills</button>
+      <button class="tab-btn" onclick="switchTab(this,'certs')">🏆 Certifications</button>
+      <button class="tab-btn" onclick="switchTab(this,'gallery')">🖼️ Gallery</button>
+    </nav>
+
+    <div class="pane-container">
       <div class="pane active" id="pane-exp">
-
         <div class="exp-item">
           <div class="timeline-col"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="exp-body">
@@ -851,12 +852,9 @@
             </ul>
           </div>
         </div>
-
       </div>
 
-      <!-- EDUCATION -->
       <div class="pane" id="pane-edu">
-
         <div class="edu-item">
           <div class="edu-ico">🎓</div>
           <div>
@@ -882,13 +880,10 @@
             </div>
           </div>
         </div>
-
       </div>
 
-      <!-- PROJECTS -->
       <div class="pane" id="pane-proj">
         <div class="proj-grid">
-
           <div class="proj-card">
             <div class="proj-name">Social Distance Monitoring System</div>
             <div class="proj-tech">Python · YOLOv8 · OpenCV</div>
@@ -909,14 +904,11 @@
             <p class="proj-desc">Multi-layer LSTM trained on financial time-series with walk-forward validation and an interactive Plotly dashboard for visualization.</p>
             <span class="proj-metric">📈 RMSE: 2.31 · 2026</span>
           </div>
-
         </div>
       </div>
 
-      <!-- SKILLS -->
       <div class="pane" id="pane-skills">
         <div class="skills-stack">
-
           <div>
             <div class="sk-label">Languages</div>
             <div class="sk-tags">
@@ -925,7 +917,6 @@
               <span class="sk-tag">C</span>
             </div>
           </div>
-
           <div>
             <div class="sk-label">AI / ML Frameworks</div>
             <div class="sk-tags">
@@ -937,7 +928,6 @@
               <span class="sk-tag">LangChain</span>
             </div>
           </div>
-
           <div>
             <div class="sk-label">ML Specializations</div>
             <div class="sk-tags">
@@ -951,7 +941,6 @@
               <span class="sk-tag">RAG</span>
             </div>
           </div>
-
           <div>
             <div class="sk-label">MLOps &amp; Cloud</div>
             <div class="sk-tags">
@@ -963,7 +952,6 @@
               <span class="sk-tag gray">Model Monitoring</span>
             </div>
           </div>
-
           <div>
             <div class="sk-label">Data Engineering</div>
             <div class="sk-tags">
@@ -974,7 +962,6 @@
               <span class="sk-tag gray">Oracle SQL</span>
             </div>
           </div>
-
           <div>
             <div class="sk-label">Tools &amp; Platforms</div>
             <div class="sk-tags">
@@ -986,14 +973,11 @@
               <span class="sk-tag gray">HuggingFace Hub</span>
             </div>
           </div>
-
         </div>
       </div>
 
-      <!-- CERTIFICATIONS -->
       <div class="pane" id="pane-certs">
         <div class="cert-grid">
-
           <div class="cert-card">
             <div class="cert-ico">☁️</div>
             <div>
@@ -1002,7 +986,6 @@
               <div class="cert-dt">Apr 2026</div>
             </div>
           </div>
-
           <div class="cert-card">
             <div class="cert-ico">🏗️</div>
             <div>
@@ -1011,7 +994,6 @@
               <div class="cert-dt">Mar 2026</div>
             </div>
           </div>
-
           <div class="cert-card">
             <div class="cert-ico">🤖</div>
             <div>
@@ -1020,7 +1002,6 @@
               <div class="cert-dt">Oct 2025</div>
             </div>
           </div>
-
           <div class="cert-card">
             <div class="cert-ico">🧪</div>
             <div>
@@ -1029,7 +1010,6 @@
               <div class="cert-dt">Aug 2025</div>
             </div>
           </div>
-
           <div class="cert-card">
             <div class="cert-ico">🐍</div>
             <div>
@@ -1038,7 +1018,6 @@
               <div class="cert-dt">Dec 2025</div>
             </div>
           </div>
-
           <div class="cert-card">
             <div class="cert-ico">📊</div>
             <div>
@@ -1047,11 +1026,9 @@
               <div class="cert-dt">Dec 2025</div>
             </div>
           </div>
-
         </div>
       </div>
 
-      <!-- GALLERY -->
       <div class="pane" id="pane-gallery">
         <p style="font-size:13.5px;color:var(--muted);margin-bottom:18px;">
           Drop your project screenshots, award moments, or conference talks here.
@@ -1066,13 +1043,7 @@
           <div class="gal-item">📸 Photo 6</div>
         </div>
       </div>
-
-    </div><!-- /tabs-wrap -->
-
-  </main>
-</div><!-- /page -->
-
-<script>
+    </div> </div></div><script>
   function switchTab(btn, id) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.pane').forEach(p => p.classList.remove('active'));

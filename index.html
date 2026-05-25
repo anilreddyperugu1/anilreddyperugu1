@@ -9,26 +9,18 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #f0f2f8;
-      --sidebar-w: 280px;
+      --bg: #eef0f8;
       --blue: #4f46e5;
       --blue-dark: #3730a3;
-      --blue-light: #6366f1;
       --blue-soft: #eef2ff;
       --blue-border: #c7d2fe;
       --text: #111827;
       --muted: #6b7280;
-      --card-bg: #ffffff;
-      --pill-bg: #ffffff;
-      --pill-border: #e5e7eb;
-      --tab-active-bg: #ffffff;
-      --summary-bg: #ffffff;
-      --stat-grad-1: #4f46e5;
-      --stat-grad-2: #4338ca;
+      --white: #ffffff;
+      --pill-border: #e2e4ec;
       --radius: 14px;
-      --radius-sm: 8px;
-      --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
-      --shadow-md: 0 4px 16px rgba(79,70,229,0.10);
+      --radius-sm: 9px;
+      --shadow-card: 0 2px 8px rgba(0,0,0,0.07);
     }
 
     body {
@@ -38,66 +30,69 @@
       min-height: 100vh;
     }
 
-    /* ── LAYOUT ── */
-    .layout {
+    /* ══════════════════════════════
+       PAGE LAYOUT — sidebar + main
+       side by side, flush to bg
+    ══════════════════════════════ */
+    .page {
       display: flex;
+      align-items: flex-start;
+      gap: 0;
       min-height: 100vh;
-      max-width: 1280px;
+      padding: 36px 40px 60px 40px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 32px 24px;
-      gap: 28px;
     }
 
-    /* ── SIDEBAR ── */
+    /* ══════════════════════════════
+       SIDEBAR
+    ══════════════════════════════ */
     .sidebar {
-      width: var(--sidebar-w);
+      width: 260px;
       flex-shrink: 0;
+      margin-right: 32px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
+      position: sticky;
+      top: 36px;
     }
 
-    .photo-wrap {
+    .photo-box {
       width: 100%;
-      aspect-ratio: 1;
+      aspect-ratio: 1 / 1;
       border-radius: var(--radius);
       overflow: hidden;
-      background: #d1d5db;
+      background: #cfd3e0;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .photo-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+    .photo-box img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
     }
 
     .photo-placeholder {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      color: #9ca3af;
+      gap: 10px;
+      color: #8b91a8;
       font-size: 13px;
-      text-align: center;
-      padding: 16px;
+      font-weight: 500;
     }
 
     .photo-placeholder svg {
-      width: 56px;
-      height: 56px;
-      opacity: 0.5;
+      width: 52px; height: 52px; opacity: 0.55;
     }
 
     .btn {
       width: 100%;
       padding: 11px 16px;
       border-radius: var(--radius-sm);
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 600;
       font-family: 'Inter', sans-serif;
       cursor: pointer;
@@ -105,62 +100,64 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      transition: all 0.18s ease;
+      transition: all 0.18s;
       text-decoration: none;
+      border: none;
     }
 
     .btn-outline {
-      background: var(--card-bg);
-      border: 1.5px solid var(--pill-border);
+      background: var(--white);
+      border: 1.5px solid #d1d5db;
       color: var(--text);
     }
 
-    .btn-outline:hover {
-      border-color: var(--blue);
-      color: var(--blue);
-      box-shadow: var(--shadow);
-    }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
 
     .btn-primary {
       background: var(--blue);
-      border: none;
       color: #fff;
     }
 
     .btn-primary:hover {
       background: var(--blue-dark);
-      box-shadow: 0 4px 14px rgba(79,70,229,0.4);
+      box-shadow: 0 4px 14px rgba(79,70,229,0.38);
       transform: translateY(-1px);
     }
 
-    /* ── MAIN ── */
+    /* ══════════════════════════════
+       MAIN COLUMN
+       — NO white card wrapper
+       — content sits on gray bg
+    ══════════════════════════════ */
     .main {
       flex: 1;
       min-width: 0;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 22px;
     }
 
-    /* ── HERO CARD ── */
-    .hero-card {
-      background: var(--card-bg);
+    /* ══════════════════════════════
+       HERO — transparent bg, no card
+    ══════════════════════════════ */
+    .hero {
+      background: var(--white);
       border-radius: var(--radius);
-      padding: 28px 32px;
-      box-shadow: var(--shadow);
+      padding: 30px 36px 28px 36px;
+      box-shadow: var(--shadow-card);
     }
 
     .hero-name {
-      font-size: 36px;
+      font-size: 38px;
       font-weight: 800;
-      color: var(--text);
+      letter-spacing: -0.8px;
       line-height: 1.1;
-      margin-bottom: 6px;
-      letter-spacing: -0.5px;
+      color: var(--text);
+      margin-bottom: 7px;
     }
 
     .hero-title {
-      font-size: 15px;
+      font-size: 15.5px;
       font-weight: 700;
       color: var(--blue);
       margin-bottom: 5px;
@@ -169,7 +166,7 @@
     .hero-tagline {
       font-size: 13.5px;
       color: var(--muted);
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
 
     .hero-location {
@@ -178,59 +175,43 @@
       display: flex;
       align-items: center;
       gap: 5px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
-    .hero-location svg { width: 14px; height: 14px; color: #ef4444; flex-shrink: 0; }
+    .hero-location svg { width: 13px; height: 13px; color: #ef4444; flex-shrink: 0; }
 
-    .contact-pills {
+    /* Contact pills */
+    .pills {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     .pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 13px;
+      padding: 6px 14px;
       border-radius: 999px;
       border: 1.5px solid var(--pill-border);
-      background: var(--pill-bg);
+      background: var(--white);
       font-size: 12.5px;
       font-weight: 500;
       color: var(--text);
-      cursor: default;
-      transition: border-color 0.15s, color 0.15s;
       text-decoration: none;
+      transition: border-color 0.15s, color 0.15s;
+      cursor: pointer;
     }
 
     .pill:hover { border-color: var(--blue); color: var(--blue); }
 
-    .pill .badge {
-      background: var(--blue-soft);
-      color: var(--blue);
-      font-size: 10px;
-      font-weight: 600;
-      padding: 1px 6px;
-      border-radius: 999px;
-    }
-
-    /* divider pill */
-    .pill-divider {
-      width: 1px;
-      height: 16px;
-      background: var(--pill-border);
-      align-self: center;
-    }
-
-    /* ── SUMMARY BOX ── */
+    /* Summary box inside hero */
     .summary-box {
       border: 1.5px solid var(--blue-border);
       border-radius: var(--radius-sm);
-      padding: 20px 22px;
-      background: linear-gradient(135deg, #fafbff 0%, #eef2ff 100%);
+      padding: 20px 24px;
+      background: linear-gradient(135deg, #fbfcff 0%, #eef2ff 100%);
       position: relative;
       overflow: hidden;
     }
@@ -241,13 +222,13 @@
       top: 0; left: 0; right: 0;
       height: 3px;
       background: linear-gradient(90deg, var(--blue), #06b6d4);
-      border-radius: 4px 4px 0 0;
+      border-radius: 3px 3px 0 0;
     }
 
     .summary-label {
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.4px;
       text-transform: uppercase;
       color: var(--blue);
       margin-bottom: 10px;
@@ -255,93 +236,102 @@
 
     .summary-text {
       font-size: 14px;
-      line-height: 1.75;
+      line-height: 1.78;
       color: #374151;
     }
 
-    /* ── STATS BAR ── */
-    .stats-bar {
+    /* ══════════════════════════════
+       STATS BAR — full width, no wrapper
+    ══════════════════════════════ */
+    .stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 14px;
     }
 
-    .stat-card {
-      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+    .stat {
+      background: linear-gradient(135deg, #5b50f0 0%, #4338ca 100%);
       border-radius: var(--radius);
-      padding: 22px 20px;
-      color: #fff;
+      padding: 24px 20px;
       text-align: center;
+      color: #fff;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 4px 18px rgba(79,70,229,0.25);
+      box-shadow: 0 6px 20px rgba(79,70,229,0.22);
     }
 
-    .stat-card::after {
+    .stat::after {
       content: '';
       position: absolute;
-      right: -18px;
-      bottom: -18px;
-      width: 80px;
-      height: 80px;
+      right: -20px; bottom: -20px;
+      width: 90px; height: 90px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.07);
     }
 
-    .stat-card::before {
+    .stat::before {
       content: '';
       position: absolute;
-      right: 20px;
-      bottom: 20px;
-      width: 50px;
-      height: 50px;
+      right: 18px; bottom: 18px;
+      width: 55px; height: 55px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.05);
     }
 
-    .stat-value {
-      font-size: 26px;
+    .stat-val {
+      font-size: 28px;
       font-weight: 800;
-      line-height: 1;
-      margin-bottom: 6px;
       letter-spacing: -0.5px;
+      line-height: 1;
+      margin-bottom: 7px;
+      position: relative;
     }
 
-    .stat-label {
-      font-size: 12px;
+    .stat-lbl {
+      font-size: 11.5px;
       font-weight: 500;
-      opacity: 0.85;
-      letter-spacing: 0.1px;
+      opacity: 0.88;
+      line-height: 1.3;
+      position: relative;
     }
 
-    /* ── EXPLORE LABEL ── */
-    .explore-label {
+    /* ══════════════════════════════
+       EXPLORE PILL
+    ══════════════════════════════ */
+    .explore-row {
+      display: flex;
+      align-items: center;
+    }
+
+    .explore-pill {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 7px 16px;
+      gap: 7px;
+      padding: 8px 20px;
       border: 1.5px solid var(--blue-border);
       border-radius: 999px;
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 700;
-      letter-spacing: 1.1px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
       color: var(--blue);
-      margin-bottom: 4px;
+      background: var(--white);
     }
 
-    /* ── TABS ── */
-    .tabs-section {
-      background: var(--card-bg);
+    /* ══════════════════════════════
+       TABS SECTION
+    ══════════════════════════════ */
+    .tabs-wrap {
+      background: var(--white);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-card);
       overflow: hidden;
     }
 
     .tabs-nav {
       display: flex;
-      border-bottom: 1.5px solid #f0f0f0;
-      background: #fafafa;
+      background: #f8f9fd;
+      border-bottom: 1.5px solid #eaecf4;
       overflow-x: auto;
       scrollbar-width: none;
     }
@@ -350,7 +340,7 @@
 
     .tab-btn {
       flex-shrink: 0;
-      padding: 16px 20px;
+      padding: 15px 22px;
       font-size: 13.5px;
       font-weight: 600;
       font-family: 'Inter', sans-serif;
@@ -370,7 +360,7 @@
 
     .tab-btn.active {
       color: var(--blue);
-      background: var(--card-bg);
+      background: var(--white);
     }
 
     .tab-btn.active::after {
@@ -382,52 +372,49 @@
       border-radius: 2px 2px 0 0;
     }
 
-    .tab-icon { font-size: 16px; }
+    /* ── PANES ── */
+    .pane { display: none; padding: 30px 36px; }
+    .pane.active { display: block; }
 
-    /* ── TAB CONTENT ── */
-    .tab-pane { display: none; padding: 28px 32px; }
-    .tab-pane.active { display: block; }
-
-    /* ── EXPERIENCE ITEMS ── */
+    /* ── EXPERIENCE ── */
     .exp-item {
       display: flex;
       gap: 18px;
-      padding: 20px 0;
-      border-bottom: 1px solid #f3f4f6;
+      padding: 22px 0;
+      border-bottom: 1px solid #f1f3f9;
     }
+    .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
 
-    .exp-item:last-child { border-bottom: none; }
-
-    .exp-dot-col {
+    .timeline-col {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 4px;
+      padding-top: 5px;
     }
 
-    .exp-dot {
-      width: 12px;
-      height: 12px;
+    .tl-dot {
+      width: 13px; height: 13px;
       border-radius: 50%;
       background: var(--blue);
       flex-shrink: 0;
+      box-shadow: 0 0 0 3px var(--blue-soft);
     }
 
-    .exp-line {
+    .tl-line {
       width: 2px;
       flex: 1;
       background: #e5e7eb;
-      margin-top: 6px;
+      margin-top: 7px;
     }
 
     .exp-body { flex: 1; }
 
-    .exp-header {
+    .exp-top {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       gap: 12px;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
       flex-wrap: wrap;
     }
 
@@ -437,102 +424,97 @@
       color: var(--text);
     }
 
-    .exp-date {
-      font-size: 12px;
-      font-weight: 600;
+    .exp-badge {
+      font-size: 11.5px;
+      font-weight: 700;
       color: var(--blue);
       background: var(--blue-soft);
-      padding: 3px 10px;
+      padding: 3px 12px;
       border-radius: 999px;
       flex-shrink: 0;
+      white-space: nowrap;
     }
 
-    .exp-company {
+    .exp-co {
       font-size: 13px;
       font-weight: 600;
       color: var(--blue);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
-    .exp-company span {
-      color: var(--muted);
-      font-weight: 400;
-    }
+    .exp-co span { color: var(--muted); font-weight: 400; }
 
-    .exp-bullets {
+    .exp-list {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 5px;
     }
 
-    .exp-bullets li {
+    .exp-list li {
       font-size: 13.5px;
       color: #374151;
-      line-height: 1.6;
+      line-height: 1.65;
       padding-left: 16px;
       position: relative;
     }
 
-    .exp-bullets li::before {
+    .exp-list li::before {
       content: '▸';
       position: absolute;
       left: 0;
       color: var(--blue);
       font-size: 11px;
-      top: 2px;
+      top: 3px;
     }
 
-    /* ── EDU ITEMS ── */
+    /* ── EDUCATION ── */
     .edu-item {
       display: flex;
       gap: 18px;
-      padding: 20px 0;
-      border-bottom: 1px solid #f3f4f6;
       align-items: flex-start;
+      padding: 20px 0;
+      border-bottom: 1px solid #f1f3f9;
     }
-
     .edu-item:last-child { border-bottom: none; }
 
-    .edu-icon {
-      width: 48px;
-      height: 48px;
+    .edu-ico {
+      width: 50px; height: 50px;
       border-radius: var(--radius-sm);
       background: var(--blue-soft);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
+      font-size: 24px;
       flex-shrink: 0;
     }
-
-    .edu-body { flex: 1; }
 
     .edu-degree {
       font-size: 15px;
       font-weight: 700;
       color: var(--text);
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
 
     .edu-school {
       font-size: 13.5px;
       font-weight: 600;
       color: var(--blue);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .edu-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
       font-size: 12.5px;
       color: var(--muted);
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
+      align-items: center;
     }
 
-    .edu-gpa {
+    .gpa-badge {
       background: #dcfce7;
-      color: #166534;
+      color: #15803d;
       font-weight: 700;
       font-size: 12px;
       padding: 2px 10px;
@@ -540,48 +522,47 @@
     }
 
     /* ── PROJECTS ── */
-    .projects-grid {
+    .proj-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
       gap: 16px;
     }
 
-    .project-card {
-      border: 1.5px solid #e5e7eb;
-      border-radius: var(--radius);
-      padding: 18px 20px;
+    .proj-card {
+      border: 1.5px solid #e5e8f0;
+      border-radius: var(--radius-sm);
+      padding: 20px;
       transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-      cursor: default;
     }
 
-    .project-card:hover {
+    .proj-card:hover {
       border-color: var(--blue-border);
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 4px 18px rgba(79,70,229,0.1);
       transform: translateY(-2px);
     }
 
-    .project-title {
+    .proj-name {
       font-size: 14.5px;
       font-weight: 700;
       color: var(--text);
       margin-bottom: 4px;
     }
 
-    .project-tech {
+    .proj-tech {
       font-size: 11.5px;
-      color: var(--blue);
       font-weight: 600;
+      color: var(--blue);
       margin-bottom: 10px;
     }
 
-    .project-desc {
+    .proj-desc {
       font-size: 13px;
       color: #4b5563;
-      line-height: 1.6;
+      line-height: 1.65;
+      margin-bottom: 12px;
     }
 
-    .project-metric {
-      margin-top: 10px;
+    .proj-metric {
       display: inline-flex;
       align-items: center;
       gap: 5px;
@@ -589,54 +570,44 @@
       color: var(--blue);
       font-size: 11.5px;
       font-weight: 700;
-      padding: 3px 10px;
+      padding: 3px 11px;
       border-radius: 999px;
     }
 
     /* ── SKILLS ── */
-    .skills-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
+    .skills-stack { display: flex; flex-direction: column; gap: 18px; }
 
-    .skill-group { }
-
-    .skill-group-label {
-      font-size: 11px;
+    .sk-label {
+      font-size: 10.5px;
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--blue);
-      margin-bottom: 10px;
+      margin-bottom: 9px;
     }
 
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    .sk-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 
-    .skill-tag {
+    .sk-tag {
       padding: 6px 14px;
       border-radius: 999px;
       font-size: 12.5px;
       font-weight: 600;
       border: 1.5px solid var(--blue-border);
-      color: var(--blue-dark);
+      color: #3730a3;
       background: var(--blue-soft);
     }
 
-    .skill-tag.muted {
-      border-color: #e5e7eb;
+    .sk-tag.gray {
+      border-color: #e2e4ec;
       color: #374151;
-      background: #f9fafb;
+      background: #f5f6fa;
     }
 
-    /* ── CERTS ── */
-    .certs-grid {
+    /* ── CERTIFICATIONS ── */
+    .cert-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
       gap: 14px;
     }
 
@@ -644,59 +615,38 @@
       display: flex;
       gap: 14px;
       align-items: flex-start;
-      border: 1.5px solid #e5e7eb;
+      border: 1.5px solid #e5e8f0;
       border-radius: var(--radius-sm);
-      padding: 16px;
+      padding: 16px 18px;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
 
-    .cert-card:hover { border-color: var(--blue-border); box-shadow: var(--shadow-md); }
+    .cert-card:hover { border-color: var(--blue-border); box-shadow: 0 4px 16px rgba(79,70,229,0.09); }
 
-    .cert-icon {
-      font-size: 26px;
-      flex-shrink: 0;
-    }
+    .cert-ico { font-size: 26px; flex-shrink: 0; }
 
-    .cert-title {
+    .cert-name {
       font-size: 13.5px;
       font-weight: 700;
       color: var(--text);
       margin-bottom: 3px;
     }
 
-    .cert-issuer {
-      font-size: 12px;
-      color: var(--muted);
-    }
+    .cert-by { font-size: 12px; color: var(--muted); }
+    .cert-dt { font-size: 11px; font-weight: 700; color: var(--blue); margin-top: 4px; }
 
-    .cert-date {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--blue);
-      margin-top: 4px;
-    }
-
-    /* ── SECTION HEADING inside panes ── */
-    .pane-heading {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-
-    /* ── GALLERY GRID ── */
+    /* ── GALLERY ── */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
       gap: 12px;
     }
 
-    .gallery-item {
+    .gal-item {
       aspect-ratio: 1;
       border-radius: var(--radius-sm);
-      background: #e5e7eb;
+      background: #e9ebf5;
+      border: 2px dashed #c7cade;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -705,39 +655,41 @@
       font-weight: 500;
       text-align: center;
       padding: 10px;
-      border: 2px dashed #d1d5db;
       transition: border-color 0.15s;
     }
 
-    .gallery-item:hover { border-color: var(--blue); }
+    .gal-item:hover { border-color: var(--blue); color: var(--blue); }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .layout { flex-direction: column; padding: 20px 16px; }
-      .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; }
-      .photo-wrap { width: 140px; height: 140px; aspect-ratio: auto; flex-shrink: 0; }
-      .stats-bar { grid-template-columns: repeat(2, 1fr); }
-      .tab-pane { padding: 20px 18px; }
+    /* ══════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════ */
+    @media (max-width: 860px) {
+      .page { flex-direction: column; padding: 20px 16px 48px; }
+      .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; position: static; }
+      .photo-box { width: 120px; height: 120px; aspect-ratio: auto; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .pane { padding: 20px 20px; }
+      .hero { padding: 22px 22px; }
     }
 
-    @media (max-width: 560px) {
-      .hero-name { font-size: 26px; }
-      .stats-bar { grid-template-columns: repeat(2, 1fr); }
-      .tab-btn { padding: 14px 14px; font-size: 12.5px; }
+    @media (max-width: 520px) {
+      .hero-name { font-size: 28px; }
+      .tab-btn { padding: 13px 14px; font-size: 12.5px; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
 
-<div class="layout">
+<div class="page">
 
-  <!-- ═══════════ SIDEBAR ═══════════ -->
+  <!-- ═══════ SIDEBAR ═══════ -->
   <aside class="sidebar">
 
-    <div class="photo-wrap">
-      <!-- Replace src with your actual photo path e.g. src="photo.jpg" -->
+    <div class="photo-box">
+      <!-- REPLACE src with your actual photo, e.g. src="photo.jpg" -->
       <img src="your-photo.jpg" alt="Anilreddy Perugu"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
       <div class="photo-placeholder" style="display:none;">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
@@ -747,9 +699,8 @@
       </div>
     </div>
 
-    <!-- Download Resume -->
     <a class="btn btn-outline" href="AnilreddyPerugu_AIMLEngineer.pdf" download>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
         <polyline points="7 10 12 15 17 10"/>
         <line x1="12" y1="15" x2="12" y2="3"/>
@@ -757,9 +708,8 @@
       Download Resume
     </a>
 
-    <!-- AI Chat Button -->
-    <button class="btn btn-primary" onclick="alert('AI Chat feature — connect your chatbot API here!')">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+    <button class="btn btn-primary" onclick="alert('Connect your AI chatbot API here!')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
       </svg>
       AI Chat with Anil
@@ -767,12 +717,11 @@
 
   </aside>
 
-  <!-- ═══════════ MAIN ═══════════ -->
+  <!-- ═══════ MAIN ═══════ -->
   <main class="main">
 
-    <!-- HERO CARD -->
-    <div class="hero-card">
-
+    <!-- HERO -->
+    <div class="hero">
       <h1 class="hero-name">Anilreddy Perugu</h1>
       <p class="hero-title">AI/ML Engineer &nbsp;·&nbsp; Deep Learning Specialist</p>
       <p class="hero-tagline">Machine Learning &nbsp;·&nbsp; Computer Vision &nbsp;·&nbsp; NLP &nbsp;·&nbsp; MLOps</p>
@@ -781,14 +730,13 @@
         Hyderabad, Telangana, India
       </p>
 
-      <!-- Contact Pills -->
-      <div class="contact-pills">
+      <div class="pills">
         <a class="pill" href="mailto:peruguanilreddy6@gmail.com">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           peruguanilreddy6@gmail.com
         </a>
         <a class="pill" href="https://linkedin.com/in/YOUR-LINKEDIN" target="_blank">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           LinkedIn
         </a>
         <a class="pill" href="https://github.com/YOUR-GITHUB" target="_blank">
@@ -801,7 +749,6 @@
         </a>
       </div>
 
-      <!-- Summary Box -->
       <div class="summary-box">
         <div class="summary-label">Professional Summary</div>
         <p class="summary-text">
@@ -812,71 +759,60 @@
           B.S. in Design &amp; Computing at BITS Pilani with a Minor in AI from IIT Ropar.
         </p>
       </div>
+    </div>
 
-    </div><!-- /hero-card -->
-
-    <!-- STATS BAR -->
-    <div class="stats-bar">
-      <div class="stat-card">
-        <div class="stat-value">3+</div>
-        <div class="stat-label">Years Experience</div>
+    <!-- STATS BAR — full width, no extra wrapper -->
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-val">3+</div>
+        <div class="stat-lbl">Years Experience</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-value">40%</div>
-        <div class="stat-label">Automation Efficiency Gain</div>
+      <div class="stat">
+        <div class="stat-val">40%</div>
+        <div class="stat-lbl">Automation Efficiency Gain</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-value">95%</div>
-        <div class="stat-label">Model Accuracy (Cancer Detection)</div>
+      <div class="stat">
+        <div class="stat-val">95%</div>
+        <div class="stat-lbl">Model Accuracy</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-value">6+</div>
-        <div class="stat-label">Certifications Earned</div>
+      <div class="stat">
+        <div class="stat-val">6+</div>
+        <div class="stat-lbl">Certifications Earned</div>
       </div>
     </div>
 
-    <!-- EXPLORE LABEL -->
-    <div class="explore-label">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      Explore My Background
+    <!-- EXPLORE -->
+    <div class="explore-row">
+      <div class="explore-pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        Explore My Background
+      </div>
     </div>
 
     <!-- TABS -->
-    <div class="tabs-section">
+    <div class="tabs-wrap">
 
-      <nav class="tabs-nav" role="tablist">
-        <button class="tab-btn active" role="tab" onclick="switchTab(this,'exp')">
-          <span class="tab-icon">💼</span> Industry Experience
-        </button>
-        <button class="tab-btn" role="tab" onclick="switchTab(this,'edu')">
-          <span class="tab-icon">🎓</span> Education
-        </button>
-        <button class="tab-btn" role="tab" onclick="switchTab(this,'projects')">
-          <span class="tab-icon">🚀</span> Projects
-        </button>
-        <button class="tab-btn" role="tab" onclick="switchTab(this,'skills')">
-          <span class="tab-icon">🛠️</span> Skills
-        </button>
-        <button class="tab-btn" role="tab" onclick="switchTab(this,'certs')">
-          <span class="tab-icon">🏆</span> Certifications
-        </button>
-        <button class="tab-btn" role="tab" onclick="switchTab(this,'gallery')">
-          <span class="tab-icon">🖼️</span> Gallery
-        </button>
+      <nav class="tabs-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'exp')">💼 Industry Experience</button>
+        <button class="tab-btn" onclick="switchTab(this,'edu')">🎓 Education</button>
+        <button class="tab-btn" onclick="switchTab(this,'proj')">🚀 Projects</button>
+        <button class="tab-btn" onclick="switchTab(this,'skills')">🛠️ Skills</button>
+        <button class="tab-btn" onclick="switchTab(this,'certs')">🏆 Certifications</button>
+        <button class="tab-btn" onclick="switchTab(this,'gallery')">🖼️ Gallery</button>
       </nav>
 
-      <!-- ─── TAB: EXPERIENCE ─── -->
-      <div class="tab-pane active" id="pane-exp">
+      <!-- EXPERIENCE -->
+      <div class="pane active" id="pane-exp">
 
         <div class="exp-item">
-          <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+          <div class="timeline-col"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="exp-body">
-            <div class="exp-header">
+            <div class="exp-top">
               <div class="exp-role">Software Engineer – AI/ML</div>
-              <div class="exp-date">Nov 2022 – Present</div>
+              <div class="exp-badge">Nov 2022 – Present</div>
             </div>
-            <div class="exp-company">HCLTech <span>· Hyderabad, India</span></div>
-            <ul class="exp-bullets">
+            <div class="exp-co">HCLTech <span>· Hyderabad, India</span></div>
+            <ul class="exp-list">
               <li>Engineered and deployed scalable AI/ML pipelines improving automation efficiency by <strong>40%</strong>, eliminating 15+ hours of manual effort per month</li>
               <li>Applied SQL and data analytics to extract actionable insights from large-scale datasets, accelerating decision-making speed by <strong>20%</strong></li>
               <li>Collaborated cross-functionally to productionize ML models on AWS SageMaker and Azure AI services</li>
@@ -886,14 +822,14 @@
         </div>
 
         <div class="exp-item">
-          <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+          <div class="timeline-col"><div class="tl-dot"></div><div class="tl-line"></div></div>
           <div class="exp-body">
-            <div class="exp-header">
+            <div class="exp-top">
               <div class="exp-role">Machine Learning Intern</div>
-              <div class="exp-date">Aug 2025 – Dec 2025</div>
+              <div class="exp-badge">Aug 2025 – Dec 2025</div>
             </div>
-            <div class="exp-company">Pantech Solutions <span>· Remote</span></div>
-            <ul class="exp-bullets">
+            <div class="exp-co">Pantech Solutions <span>· Remote</span></div>
+            <ul class="exp-list">
               <li>Built optimized data preprocessing pipelines in Python, reducing model training time by <strong>30%</strong></li>
               <li>Performed advanced feature engineering and Bayesian hyperparameter tuning for classification tasks</li>
               <li>Fine-tuned NLP and deep learning models for healthcare analytics applications</li>
@@ -902,14 +838,14 @@
         </div>
 
         <div class="exp-item">
-          <div class="exp-dot-col"><div class="exp-dot"></div></div>
+          <div class="timeline-col"><div class="tl-dot"></div></div>
           <div class="exp-body">
-            <div class="exp-header">
+            <div class="exp-top">
               <div class="exp-role">AI/ML Research Scholar</div>
-              <div class="exp-date">Nov 2021 – Nov 2022</div>
+              <div class="exp-badge">Nov 2021 – Nov 2022</div>
             </div>
-            <div class="exp-company">HCLTech <span>· Hyderabad, India</span></div>
-            <ul class="exp-bullets">
+            <div class="exp-co">HCLTech <span>· Hyderabad, India</span></div>
+            <ul class="exp-list">
               <li>Researched advanced ML techniques, contributing to optimized model architectures via ablation studies</li>
               <li>Developed deep learning pipeline for breast cancer detection achieving <strong>95% accuracy</strong> using TensorFlow &amp; Keras</li>
             </ul>
@@ -918,231 +854,230 @@
 
       </div>
 
-      <!-- ─── TAB: EDUCATION ─── -->
-      <div class="tab-pane" id="pane-edu">
+      <!-- EDUCATION -->
+      <div class="pane" id="pane-edu">
 
         <div class="edu-item">
-          <div class="edu-icon">🎓</div>
-          <div class="edu-body">
+          <div class="edu-ico">🎓</div>
+          <div>
             <div class="edu-degree">B.S. in Design &amp; Computing</div>
             <div class="edu-school">Birla Institute of Technology &amp; Science (BITS Pilani)</div>
             <div class="edu-meta">
               <span>📅 Feb 2023 – May 2027</span>
               <span>📍 Rajasthan, India</span>
-              <span class="edu-gpa">CGPA: 8.84 / 10</span>
+              <span class="gpa-badge">CGPA: 8.84 / 10</span>
             </div>
           </div>
         </div>
 
         <div class="edu-item">
-          <div class="edu-icon">🏛️</div>
-          <div class="edu-body">
+          <div class="edu-ico">🏛️</div>
+          <div>
             <div class="edu-degree">Minor Degree in Artificial Intelligence</div>
             <div class="edu-school">Indian Institute of Technology (IIT Ropar)</div>
             <div class="edu-meta">
               <span>📅 2024 – 2025</span>
               <span>📍 Punjab, India</span>
-              <span class="edu-gpa">CGPA: 8.0 / 10</span>
+              <span class="gpa-badge">CGPA: 8.0 / 10</span>
             </div>
           </div>
         </div>
 
       </div>
 
-      <!-- ─── TAB: PROJECTS ─── -->
-      <div class="tab-pane" id="pane-projects">
-        <div class="projects-grid">
+      <!-- PROJECTS -->
+      <div class="pane" id="pane-proj">
+        <div class="proj-grid">
 
-          <div class="project-card">
-            <div class="project-title">Social Distance Monitoring System</div>
-            <div class="project-tech">Python · YOLOv8 · OpenCV</div>
-            <div class="project-desc">Real-time social distance violation detector from live video streams using YOLOv8 object detection with multi-person tracking and configurable distance thresholds.</div>
-            <div class="project-metric">🚀 Real-time Detection · 2026</div>
+          <div class="proj-card">
+            <div class="proj-name">Social Distance Monitoring System</div>
+            <div class="proj-tech">Python · YOLOv8 · OpenCV</div>
+            <p class="proj-desc">Real-time social distance violation detector from live video streams using YOLOv8 with multi-person tracking and configurable thresholds.</p>
+            <span class="proj-metric">🚀 Real-time Detection · 2026</span>
           </div>
 
-          <div class="project-card">
-            <div class="project-title">Custom Face Recognition with Database</div>
-            <div class="project-tech">Python · OpenCV · DeepFace</div>
-            <div class="project-desc">Intelligent face recognition system with a custom facial database, capable of real-time individual identification and unknown face flagging.</div>
-            <div class="project-metric">👁️ Real-time ID · 2026</div>
+          <div class="proj-card">
+            <div class="proj-name">Custom Face Recognition with Database</div>
+            <div class="proj-tech">Python · OpenCV · DeepFace</div>
+            <p class="proj-desc">Intelligent face recognition with a custom facial database, capable of real-time individual identification and unknown face flagging.</p>
+            <span class="proj-metric">👁️ Real-time ID · 2026</span>
           </div>
 
-          <div class="project-card">
-            <div class="project-title">Stock Price Prediction (LSTM)</div>
-            <div class="project-tech">Python · PyTorch · Scikit-learn</div>
-            <div class="project-desc">Multi-layer LSTM model trained on financial time-series data with walk-forward validation and an interactive Plotly dashboard for visualization.</div>
-            <div class="project-metric">📈 RMSE: 2.31 · 2026</div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- ─── TAB: SKILLS ─── -->
-      <div class="tab-pane" id="pane-skills">
-        <div class="skills-grid">
-
-          <div class="skill-group">
-            <div class="skill-group-label">Languages</div>
-            <div class="skill-tags">
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">SQL</span>
-              <span class="skill-tag">C</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-group-label">AI / ML Frameworks</div>
-            <div class="skill-tags">
-              <span class="skill-tag">TensorFlow</span>
-              <span class="skill-tag">Keras</span>
-              <span class="skill-tag">PyTorch</span>
-              <span class="skill-tag">Scikit-learn</span>
-              <span class="skill-tag">Hugging Face</span>
-              <span class="skill-tag">LangChain</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-group-label">ML Specializations</div>
-            <div class="skill-tags">
-              <span class="skill-tag">Deep Learning</span>
-              <span class="skill-tag">NLP</span>
-              <span class="skill-tag">Computer Vision</span>
-              <span class="skill-tag">CNNs</span>
-              <span class="skill-tag">LSTM</span>
-              <span class="skill-tag">Generative AI</span>
-              <span class="skill-tag">LLMs</span>
-              <span class="skill-tag">RAG</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-group-label">MLOps &amp; Cloud</div>
-            <div class="skill-tags">
-              <span class="skill-tag muted">AWS Bedrock</span>
-              <span class="skill-tag muted">AWS SageMaker</span>
-              <span class="skill-tag muted">Azure AI</span>
-              <span class="skill-tag muted">Docker</span>
-              <span class="skill-tag muted">CI/CD</span>
-              <span class="skill-tag muted">Model Monitoring</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-group-label">Data Engineering</div>
-            <div class="skill-tags">
-              <span class="skill-tag muted">Pandas</span>
-              <span class="skill-tag muted">NumPy</span>
-              <span class="skill-tag muted">ETL Pipelines</span>
-              <span class="skill-tag muted">Feature Engineering</span>
-              <span class="skill-tag muted">Oracle SQL</span>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-group-label">Tools &amp; Platforms</div>
-            <div class="skill-tags">
-              <span class="skill-tag muted">Git</span>
-              <span class="skill-tag muted">GitHub Copilot</span>
-              <span class="skill-tag muted">Jupyter</span>
-              <span class="skill-tag muted">VSCode</span>
-              <span class="skill-tag muted">Kaggle</span>
-              <span class="skill-tag muted">HuggingFace Hub</span>
-            </div>
+          <div class="proj-card">
+            <div class="proj-name">Stock Price Prediction (LSTM)</div>
+            <div class="proj-tech">Python · PyTorch · Scikit-learn</div>
+            <p class="proj-desc">Multi-layer LSTM trained on financial time-series with walk-forward validation and an interactive Plotly dashboard for visualization.</p>
+            <span class="proj-metric">📈 RMSE: 2.31 · 2026</span>
           </div>
 
         </div>
       </div>
 
-      <!-- ─── TAB: CERTIFICATIONS ─── -->
-      <div class="tab-pane" id="pane-certs">
-        <div class="certs-grid">
+      <!-- SKILLS -->
+      <div class="pane" id="pane-skills">
+        <div class="skills-stack">
 
-          <div class="cert-card">
-            <div class="cert-icon">☁️</div>
-            <div>
-              <div class="cert-title">Microsoft Azure AI Engineer</div>
-              <div class="cert-issuer">Microsoft</div>
-              <div class="cert-date">Apr 2026</div>
+          <div>
+            <div class="sk-label">Languages</div>
+            <div class="sk-tags">
+              <span class="sk-tag">Python</span>
+              <span class="sk-tag">SQL</span>
+              <span class="sk-tag">C</span>
             </div>
           </div>
 
-          <div class="cert-card">
-            <div class="cert-icon">🏗️</div>
-            <div>
-              <div class="cert-title">Microsoft Fabric Data Engineer</div>
-              <div class="cert-issuer">Microsoft</div>
-              <div class="cert-date">Mar 2026</div>
+          <div>
+            <div class="sk-label">AI / ML Frameworks</div>
+            <div class="sk-tags">
+              <span class="sk-tag">TensorFlow</span>
+              <span class="sk-tag">Keras</span>
+              <span class="sk-tag">PyTorch</span>
+              <span class="sk-tag">Scikit-learn</span>
+              <span class="sk-tag">Hugging Face</span>
+              <span class="sk-tag">LangChain</span>
             </div>
           </div>
 
-          <div class="cert-card">
-            <div class="cert-icon">🤖</div>
-            <div>
-              <div class="cert-title">GitHub Copilot Certification</div>
-              <div class="cert-issuer">Microsoft / GitHub</div>
-              <div class="cert-date">Oct 2025</div>
+          <div>
+            <div class="sk-label">ML Specializations</div>
+            <div class="sk-tags">
+              <span class="sk-tag">Deep Learning</span>
+              <span class="sk-tag">NLP</span>
+              <span class="sk-tag">Computer Vision</span>
+              <span class="sk-tag">CNNs</span>
+              <span class="sk-tag">LSTM</span>
+              <span class="sk-tag">Generative AI</span>
+              <span class="sk-tag">LLMs</span>
+              <span class="sk-tag">RAG</span>
             </div>
           </div>
 
-          <div class="cert-card">
-            <div class="cert-icon">🧪</div>
-            <div>
-              <div class="cert-title">Machine Learning Internship</div>
-              <div class="cert-issuer">Pantech Solutions</div>
-              <div class="cert-date">Aug 2025</div>
+          <div>
+            <div class="sk-label">MLOps &amp; Cloud</div>
+            <div class="sk-tags">
+              <span class="sk-tag gray">AWS Bedrock</span>
+              <span class="sk-tag gray">AWS SageMaker</span>
+              <span class="sk-tag gray">Azure AI</span>
+              <span class="sk-tag gray">Docker</span>
+              <span class="sk-tag gray">CI/CD</span>
+              <span class="sk-tag gray">Model Monitoring</span>
             </div>
           </div>
 
-          <div class="cert-card">
-            <div class="cert-icon">🐍</div>
-            <div>
-              <div class="cert-title">Python Libraries for Data Science</div>
-              <div class="cert-issuer">Simplilearn</div>
-              <div class="cert-date">Dec 2025</div>
+          <div>
+            <div class="sk-label">Data Engineering</div>
+            <div class="sk-tags">
+              <span class="sk-tag gray">Pandas</span>
+              <span class="sk-tag gray">NumPy</span>
+              <span class="sk-tag gray">ETL Pipelines</span>
+              <span class="sk-tag gray">Feature Engineering</span>
+              <span class="sk-tag gray">Oracle SQL</span>
             </div>
           </div>
 
-          <div class="cert-card">
-            <div class="cert-icon">📊</div>
-            <div>
-              <div class="cert-title">Data Science Tools</div>
-              <div class="cert-issuer">IBM</div>
-              <div class="cert-date">Dec 2025</div>
+          <div>
+            <div class="sk-label">Tools &amp; Platforms</div>
+            <div class="sk-tags">
+              <span class="sk-tag gray">Git</span>
+              <span class="sk-tag gray">GitHub Copilot</span>
+              <span class="sk-tag gray">Jupyter</span>
+              <span class="sk-tag gray">VSCode</span>
+              <span class="sk-tag gray">Kaggle</span>
+              <span class="sk-tag gray">HuggingFace Hub</span>
             </div>
           </div>
 
         </div>
       </div>
 
-      <!-- ─── TAB: GALLERY ─── -->
-      <div class="tab-pane" id="pane-gallery">
-        <p style="font-size:13.5px; color:var(--muted); margin-bottom:18px;">
-          Add your photos, project screenshots, award moments, or conference talks below.
-          Replace the placeholder divs with <code>&lt;img&gt;</code> tags.
+      <!-- CERTIFICATIONS -->
+      <div class="pane" id="pane-certs">
+        <div class="cert-grid">
+
+          <div class="cert-card">
+            <div class="cert-ico">☁️</div>
+            <div>
+              <div class="cert-name">Microsoft Azure AI Engineer</div>
+              <div class="cert-by">Microsoft</div>
+              <div class="cert-dt">Apr 2026</div>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-ico">🏗️</div>
+            <div>
+              <div class="cert-name">Microsoft Fabric Data Engineer</div>
+              <div class="cert-by">Microsoft</div>
+              <div class="cert-dt">Mar 2026</div>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-ico">🤖</div>
+            <div>
+              <div class="cert-name">GitHub Copilot Certification</div>
+              <div class="cert-by">Microsoft / GitHub</div>
+              <div class="cert-dt">Oct 2025</div>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-ico">🧪</div>
+            <div>
+              <div class="cert-name">Machine Learning Internship</div>
+              <div class="cert-by">Pantech Solutions</div>
+              <div class="cert-dt">Aug 2025</div>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-ico">🐍</div>
+            <div>
+              <div class="cert-name">Python Libraries for Data Science</div>
+              <div class="cert-by">Simplilearn</div>
+              <div class="cert-dt">Dec 2025</div>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-ico">📊</div>
+            <div>
+              <div class="cert-name">Data Science Tools</div>
+              <div class="cert-by">IBM</div>
+              <div class="cert-dt">Dec 2025</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- GALLERY -->
+      <div class="pane" id="pane-gallery">
+        <p style="font-size:13.5px;color:var(--muted);margin-bottom:18px;">
+          Drop your project screenshots, award moments, or conference talks here.
+          Replace each placeholder with an <code>&lt;img src="your-image.jpg"&gt;</code> tag.
         </p>
         <div class="gallery-grid">
-          <div class="gallery-item">📸 Add Photo 1</div>
-          <div class="gallery-item">📸 Add Photo 2</div>
-          <div class="gallery-item">📸 Add Photo 3</div>
-          <div class="gallery-item">📸 Add Photo 4</div>
-          <div class="gallery-item">📸 Add Photo 5</div>
-          <div class="gallery-item">📸 Add Photo 6</div>
+          <div class="gal-item">📸 Photo 1</div>
+          <div class="gal-item">📸 Photo 2</div>
+          <div class="gal-item">📸 Photo 3</div>
+          <div class="gal-item">📸 Photo 4</div>
+          <div class="gal-item">📸 Photo 5</div>
+          <div class="gal-item">📸 Photo 6</div>
         </div>
       </div>
 
-    </div><!-- /tabs-section -->
+    </div><!-- /tabs-wrap -->
 
   </main>
-
-</div><!-- /layout -->
+</div><!-- /page -->
 
 <script>
-  function switchTab(btn, paneId) {
+  function switchTab(btn, id) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.pane').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
-    document.getElementById('pane-' + paneId).classList.add('active');
+    document.getElementById('pane-' + id).classList.add('active');
   }
 </script>
 

@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anilreddy Perugu – AI/ML Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f0f2f8;
+      --sidebar-w: 280px;
+      --blue: #4f46e5;
+      --blue-dark: #3730a3;
+      --blue-light: #6366f1;
+      --blue-soft: #eef2ff;
+      --blue-border: #c7d2fe;
+      --text: #111827;
+      --muted: #6b7280;
+      --card-bg: #ffffff;
+      --pill-bg: #ffffff;
+      --pill-border: #e5e7eb;
+      --tab-active-bg: #ffffff;
+      --summary-bg: #ffffff;
+      --stat-grad-1: #4f46e5;
+      --stat-grad-2: #4338ca;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 16px rgba(79,70,229,0.10);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── LAYOUT ── */
+    .layout {
+      display: flex;
+      min-height: 100vh;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      gap: 28px;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: var(--sidebar-w);
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .photo-wrap {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #d1d5db;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #9ca3af;
+      font-size: 13px;
+      text-align: center;
+      padding: 16px;
+    }
+
+    .photo-placeholder svg {
+      width: 56px;
+      height: 56px;
+      opacity: 0.5;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 11px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.18s ease;
+      text-decoration: none;
+    }
+
+    .btn-outline {
+      background: var(--card-bg);
+      border: 1.5px solid var(--pill-border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      border: none;
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-dark);
+      box-shadow: 0 4px 14px rgba(79,70,229,0.4);
+      transform: translateY(-1px);
+    }
+
+    /* ── MAIN ── */
+    .main {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* ── HERO CARD ── */
+    .hero-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-name {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 5px;
+    }
+
+    .hero-tagline {
+      font-size: 13.5px;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .hero-location {
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 18px;
+    }
+
+    .hero-location svg { width: 14px; height: 14px; color: #ef4444; flex-shrink: 0; }
+
+    .contact-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 13px;
+      border-radius: 999px;
+      border: 1.5px solid var(--pill-border);
+      background: var(--pill-bg);
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text);
+      cursor: default;
+      transition: border-color 0.15s, color 0.15s;
+      text-decoration: none;
+    }
+
+    .pill:hover { border-color: var(--blue); color: var(--blue); }
+
+    .pill .badge {
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 999px;
+    }
+
+    /* divider pill */
+    .pill-divider {
+      width: 1px;
+      height: 16px;
+      background: var(--pill-border);
+      align-self: center;
+    }
+
+    /* ── SUMMARY BOX ── */
+    .summary-box {
+      border: 1.5px solid var(--blue-border);
+      border-radius: var(--radius-sm);
+      padding: 20px 22px;
+      background: linear-gradient(135deg, #fafbff 0%, #eef2ff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .summary-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), #06b6d4);
+      border-radius: 4px 4px 0 0;
+    }
+
+    .summary-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    .summary-text {
+      font-size: 14px;
+      line-height: 1.75;
+      color: #374151;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(79,70,229,0.25);
+    }
+
+    .stat-card::after {
+      content: '';
+      position: absolute;
+      right: -18px;
+      bottom: -18px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .stat-value {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0.85;
+      letter-spacing: 0.1px;
+    }
+
+    /* ── EXPLORE LABEL ── */
+    .explore-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      border: 1.5px solid var(--blue-border);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 4px;
+    }
+
+    /* ── TABS ── */
+    .tabs-section {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .tabs-nav {
+      display: flex;
+      border-bottom: 1.5px solid #f0f0f0;
+      background: #fafafa;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .tabs-nav::-webkit-scrollbar { display: none; }
+
+    .tab-btn {
+      flex-shrink: 0;
+      padding: 16px 20px;
+      font-size: 13.5px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      color: var(--muted);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      position: relative;
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover { color: var(--blue); }
+
+    .tab-btn.active {
+      color: var(--blue);
+      background: var(--card-bg);
+    }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 2.5px;
+      background: var(--blue);
+      border-radius: 2px 2px 0 0;
+    }
+
+    .tab-icon { font-size: 16px; }
+
+    /* ── TAB CONTENT ── */
+    .tab-pane { display: none; padding: 28px 32px; }
+    .tab-pane.active { display: block; }
+
+    /* ── EXPERIENCE ITEMS ── */
+    .exp-item {
+      display: flex;
+      gap: 18px;
+      padding: 20px 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .exp-item:last-child { border-bottom: none; }
+
+    .exp-dot-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 4px;
+    }
+
+    .exp-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+
+    .exp-line {
+      width: 2px;
+      flex: 1;
+      background: #e5e7eb;
+      margin-top: 6px;
+    }
+
+    .exp-body { flex: 1; }
+
+    .exp-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+
+    .exp-role {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .exp-date {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue);
+      background: var(--blue-soft);
+      padding: 3px 10px;
+      border-radius: 999px;
+      flex-shrink: 0;
+    }
+
+    .exp-company {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+
+    .exp-company span {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .exp-bullets li {
+      font-size: 13.5px;
+      color: #374151;
+      line-height: 1.6;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .exp-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-size: 11px;
+      top: 2px;
+    }
+
+    /* ── EDU ITEMS ── */
+    .edu-item {
+      display: flex;
+      gap: 18px;
+      padding: 20px 0;
+      border-bottom: 1px solid #f3f4f6;
+      align-items: flex-start;
+    }
+
+    .edu-item:last-child { border-bottom: none; }
+
+    .edu-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background: var(--blue-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .edu-body { flex: 1; }
+
+    .edu-degree {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .edu-school {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 4px;
+    }
+
+    .edu-meta {
+      font-size: 12.5px;
+      color: var(--muted);
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .edu-gpa {
+      background: #dcfce7;
+      color: #166534;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 2px 10px;
+      border-radius: 999px;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .project-card {
+      border: 1.5px solid #e5e7eb;
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      cursor: default;
+    }
+
+    .project-card:hover {
+      border-color: var(--blue-border);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .project-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .project-tech {
+      font-size: 11.5px;
+      color: var(--blue);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: #4b5563;
+      line-height: 1.6;
+    }
+
+    .project-metric {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .skill-group { }
+
+    .skill-group-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 600;
+      border: 1.5px solid var(--blue-border);
+      color: var(--blue-dark);
+      background: var(--blue-soft);
+    }
+
+    .skill-tag.muted {
+      border-color: #e5e7eb;
+      color: #374151;
+      background: #f9fafb;
+    }
+
+    /* ── CERTS ── */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .cert-card {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      border: 1.5px solid #e5e7eb;
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .cert-card:hover { border-color: var(--blue-border); box-shadow: var(--shadow-md); }
+
+    .cert-icon {
+      font-size: 26px;
+      flex-shrink: 0;
+    }
+
+    .cert-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .cert-issuer {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .cert-date {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--blue);
+      margin-top: 4px;
+    }
+
+    /* ── SECTION HEADING inside panes ── */
+    .pane-heading {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    /* ── GALLERY GRID ── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1;
+      border-radius: var(--radius-sm);
+      background: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+      text-align: center;
+      padding: 10px;
+      border: 2px dashed #d1d5db;
+      transition: border-color 0.15s;
+    }
+
+    .gallery-item:hover { border-color: var(--blue); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .layout { flex-direction: column; padding: 20px 16px; }
+      .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; }
+      .photo-wrap { width: 140px; height: 140px; aspect-ratio: auto; flex-shrink: 0; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .tab-pane { padding: 20px 18px; }
+    }
+
+    @media (max-width: 560px) {
+      .hero-name { font-size: 26px; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .tab-btn { padding: 14px 14px; font-size: 12.5px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ═══════════ SIDEBAR ═══════════ -->
+  <aside class="sidebar">
+
+    <div class="photo-wrap">
+      <!-- Replace src with your actual photo path e.g. src="photo.jpg" -->
+      <img src="your-photo.jpg" alt="Anilreddy Perugu"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      <div class="photo-placeholder" style="display:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        Add your photo
+      </div>
+    </div>
+
+    <!-- Download Resume -->
+    <a class="btn btn-outline" href="AnilreddyPerugu_AIMLEngineer.pdf" download>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Download Resume
+    </a>
+
+    <!-- AI Chat Button -->
+    <button class="btn btn-primary" onclick="alert('AI Chat feature — connect your chatbot API here!')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      AI Chat with Anil
+    </button>
+
+  </aside>
+
+  <!-- ═══════════ MAIN ═══════════ -->
+  <main class="main">
+
+    <!-- HERO CARD -->
+    <div class="hero-card">
+
+      <h1 class="hero-name">Anilreddy Perugu</h1>
+      <p class="hero-title">AI/ML Engineer &nbsp;·&nbsp; Deep Learning Specialist</p>
+      <p class="hero-tagline">Machine Learning &nbsp;·&nbsp; Computer Vision &nbsp;·&nbsp; NLP &nbsp;·&nbsp; MLOps</p>
+      <p class="hero-location">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Hyderabad, Telangana, India
+      </p>
+
+      <!-- Contact Pills -->
+      <div class="contact-pills">
+        <a class="pill" href="mailto:peruguanilreddy6@gmail.com">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          peruguanilreddy6@gmail.com
+        </a>
+        <a class="pill" href="https://linkedin.com/in/YOUR-LINKEDIN" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a class="pill" href="https://github.com/YOUR-GITHUB" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a class="pill" href="tel:+919493781512">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.29 6.29l1.13-1.13a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +91 9493781512
+        </a>
+      </div>
+
+      <!-- Summary Box -->
+      <div class="summary-box">
+        <div class="summary-label">Professional Summary</div>
+        <p class="summary-text">
+          AI Software Engineer with 3+ years of experience designing and deploying production-grade ML systems.
+          Specializes in deep learning, NLP, computer vision, and MLOps on AWS and Azure. Proven track record
+          of delivering 40% automation efficiency gains and reducing model training time by 30% through optimized
+          data pipelines. Recognized as Top Performer for two consecutive years at HCLTech. Currently pursuing
+          B.S. in Design &amp; Computing at BITS Pilani with a Minor in AI from IIT Ropar.
+        </p>
+      </div>
+
+    </div><!-- /hero-card -->
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+      <div class="stat-card">
+        <div class="stat-value">3+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">40%</div>
+        <div class="stat-label">Automation Efficiency Gain</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">95%</div>
+        <div class="stat-label">Model Accuracy (Cancer Detection)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">6+</div>
+        <div class="stat-label">Certifications Earned</div>
+      </div>
+    </div>
+
+    <!-- EXPLORE LABEL -->
+    <div class="explore-label">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Explore My Background
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs-section">
+
+      <nav class="tabs-nav" role="tablist">
+        <button class="tab-btn active" role="tab" onclick="switchTab(this,'exp')">
+          <span class="tab-icon">💼</span> Industry Experience
+        </button>
+        <button class="tab-btn" role="tab" onclick="switchTab(this,'edu')">
+          <span class="tab-icon">🎓</span> Education
+        </button>
+        <button class="tab-btn" role="tab" onclick="switchTab(this,'projects')">
+          <span class="tab-icon">🚀</span> Projects
+        </button>
+        <button class="tab-btn" role="tab" onclick="switchTab(this,'skills')">
+          <span class="tab-icon">🛠️</span> Skills
+        </button>
+        <button class="tab-btn" role="tab" onclick="switchTab(this,'certs')">
+          <span class="tab-icon">🏆</span> Certifications
+        </button>
+        <button class="tab-btn" role="tab" onclick="switchTab(this,'gallery')">
+          <span class="tab-icon">🖼️</span> Gallery
+        </button>
+      </nav>
+
+      <!-- ─── TAB: EXPERIENCE ─── -->
+      <div class="tab-pane active" id="pane-exp">
+
+        <div class="exp-item">
+          <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+          <div class="exp-body">
+            <div class="exp-header">
+              <div class="exp-role">Software Engineer – AI/ML</div>
+              <div class="exp-date">Nov 2022 – Present</div>
+            </div>
+            <div class="exp-company">HCLTech <span>· Hyderabad, India</span></div>
+            <ul class="exp-bullets">
+              <li>Engineered and deployed scalable AI/ML pipelines improving automation efficiency by <strong>40%</strong>, eliminating 15+ hours of manual effort per month</li>
+              <li>Applied SQL and data analytics to extract actionable insights from large-scale datasets, accelerating decision-making speed by <strong>20%</strong></li>
+              <li>Collaborated cross-functionally to productionize ML models on AWS SageMaker and Azure AI services</li>
+              <li>Recognized as <strong>Top Performer</strong> for two consecutive years for high-impact AI/ML contributions</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+          <div class="exp-body">
+            <div class="exp-header">
+              <div class="exp-role">Machine Learning Intern</div>
+              <div class="exp-date">Aug 2025 – Dec 2025</div>
+            </div>
+            <div class="exp-company">Pantech Solutions <span>· Remote</span></div>
+            <ul class="exp-bullets">
+              <li>Built optimized data preprocessing pipelines in Python, reducing model training time by <strong>30%</strong></li>
+              <li>Performed advanced feature engineering and Bayesian hyperparameter tuning for classification tasks</li>
+              <li>Fine-tuned NLP and deep learning models for healthcare analytics applications</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-dot-col"><div class="exp-dot"></div></div>
+          <div class="exp-body">
+            <div class="exp-header">
+              <div class="exp-role">AI/ML Research Scholar</div>
+              <div class="exp-date">Nov 2021 – Nov 2022</div>
+            </div>
+            <div class="exp-company">HCLTech <span>· Hyderabad, India</span></div>
+            <ul class="exp-bullets">
+              <li>Researched advanced ML techniques, contributing to optimized model architectures via ablation studies</li>
+              <li>Developed deep learning pipeline for breast cancer detection achieving <strong>95% accuracy</strong> using TensorFlow &amp; Keras</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ─── TAB: EDUCATION ─── -->
+      <div class="tab-pane" id="pane-edu">
+
+        <div class="edu-item">
+          <div class="edu-icon">🎓</div>
+          <div class="edu-body">
+            <div class="edu-degree">B.S. in Design &amp; Computing</div>
+            <div class="edu-school">Birla Institute of Technology &amp; Science (BITS Pilani)</div>
+            <div class="edu-meta">
+              <span>📅 Feb 2023 – May 2027</span>
+              <span>📍 Rajasthan, India</span>
+              <span class="edu-gpa">CGPA: 8.84 / 10</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-icon">🏛️</div>
+          <div class="edu-body">
+            <div class="edu-degree">Minor Degree in Artificial Intelligence</div>
+            <div class="edu-school">Indian Institute of Technology (IIT Ropar)</div>
+            <div class="edu-meta">
+              <span>📅 2024 – 2025</span>
+              <span>📍 Punjab, India</span>
+              <span class="edu-gpa">CGPA: 8.0 / 10</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ─── TAB: PROJECTS ─── -->
+      <div class="tab-pane" id="pane-projects">
+        <div class="projects-grid">
+
+          <div class="project-card">
+            <div class="project-title">Social Distance Monitoring System</div>
+            <div class="project-tech">Python · YOLOv8 · OpenCV</div>
+            <div class="project-desc">Real-time social distance violation detector from live video streams using YOLOv8 object detection with multi-person tracking and configurable distance thresholds.</div>
+            <div class="project-metric">🚀 Real-time Detection · 2026</div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-title">Custom Face Recognition with Database</div>
+            <div class="project-tech">Python · OpenCV · DeepFace</div>
+            <div class="project-desc">Intelligent face recognition system with a custom facial database, capable of real-time individual identification and unknown face flagging.</div>
+            <div class="project-metric">👁️ Real-time ID · 2026</div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-title">Stock Price Prediction (LSTM)</div>
+            <div class="project-tech">Python · PyTorch · Scikit-learn</div>
+            <div class="project-desc">Multi-layer LSTM model trained on financial time-series data with walk-forward validation and an interactive Plotly dashboard for visualization.</div>
+            <div class="project-metric">📈 RMSE: 2.31 · 2026</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ─── TAB: SKILLS ─── -->
+      <div class="tab-pane" id="pane-skills">
+        <div class="skills-grid">
+
+          <div class="skill-group">
+            <div class="skill-group-label">Languages</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">C</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">AI / ML Frameworks</div>
+            <div class="skill-tags">
+              <span class="skill-tag">TensorFlow</span>
+              <span class="skill-tag">Keras</span>
+              <span class="skill-tag">PyTorch</span>
+              <span class="skill-tag">Scikit-learn</span>
+              <span class="skill-tag">Hugging Face</span>
+              <span class="skill-tag">LangChain</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">ML Specializations</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Deep Learning</span>
+              <span class="skill-tag">NLP</span>
+              <span class="skill-tag">Computer Vision</span>
+              <span class="skill-tag">CNNs</span>
+              <span class="skill-tag">LSTM</span>
+              <span class="skill-tag">Generative AI</span>
+              <span class="skill-tag">LLMs</span>
+              <span class="skill-tag">RAG</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">MLOps &amp; Cloud</div>
+            <div class="skill-tags">
+              <span class="skill-tag muted">AWS Bedrock</span>
+              <span class="skill-tag muted">AWS SageMaker</span>
+              <span class="skill-tag muted">Azure AI</span>
+              <span class="skill-tag muted">Docker</span>
+              <span class="skill-tag muted">CI/CD</span>
+              <span class="skill-tag muted">Model Monitoring</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Data Engineering</div>
+            <div class="skill-tags">
+              <span class="skill-tag muted">Pandas</span>
+              <span class="skill-tag muted">NumPy</span>
+              <span class="skill-tag muted">ETL Pipelines</span>
+              <span class="skill-tag muted">Feature Engineering</span>
+              <span class="skill-tag muted">Oracle SQL</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Tools &amp; Platforms</div>
+            <div class="skill-tags">
+              <span class="skill-tag muted">Git</span>
+              <span class="skill-tag muted">GitHub Copilot</span>
+              <span class="skill-tag muted">Jupyter</span>
+              <span class="skill-tag muted">VSCode</span>
+              <span class="skill-tag muted">Kaggle</span>
+              <span class="skill-tag muted">HuggingFace Hub</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ─── TAB: CERTIFICATIONS ─── -->
+      <div class="tab-pane" id="pane-certs">
+        <div class="certs-grid">
+
+          <div class="cert-card">
+            <div class="cert-icon">☁️</div>
+            <div>
+              <div class="cert-title">Microsoft Azure AI Engineer</div>
+              <div class="cert-issuer">Microsoft</div>
+              <div class="cert-date">Apr 2026</div>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">🏗️</div>
+            <div>
+              <div class="cert-title">Microsoft Fabric Data Engineer</div>
+              <div class="cert-issuer">Microsoft</div>
+              <div class="cert-date">Mar 2026</div>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">🤖</div>
+            <div>
+              <div class="cert-title">GitHub Copilot Certification</div>
+              <div class="cert-issuer">Microsoft / GitHub</div>
+              <div class="cert-date">Oct 2025</div>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">🧪</div>
+            <div>
+              <div class="cert-title">Machine Learning Internship</div>
+              <div class="cert-issuer">Pantech Solutions</div>
+              <div class="cert-date">Aug 2025</div>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">🐍</div>
+            <div>
+              <div class="cert-title">Python Libraries for Data Science</div>
+              <div class="cert-issuer">Simplilearn</div>
+              <div class="cert-date">Dec 2025</div>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">📊</div>
+            <div>
+              <div class="cert-title">Data Science Tools</div>
+              <div class="cert-issuer">IBM</div>
+              <div class="cert-date">Dec 2025</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ─── TAB: GALLERY ─── -->
+      <div class="tab-pane" id="pane-gallery">
+        <p style="font-size:13.5px; color:var(--muted); margin-bottom:18px;">
+          Add your photos, project screenshots, award moments, or conference talks below.
+          Replace the placeholder divs with <code>&lt;img&gt;</code> tags.
+        </p>
+        <div class="gallery-grid">
+          <div class="gallery-item">📸 Add Photo 1</div>
+          <div class="gallery-item">📸 Add Photo 2</div>
+          <div class="gallery-item">📸 Add Photo 3</div>
+          <div class="gallery-item">📸 Add Photo 4</div>
+          <div class="gallery-item">📸 Add Photo 5</div>
+          <div class="gallery-item">📸 Add Photo 6</div>
+        </div>
+      </div>
+
+    </div><!-- /tabs-section -->
+
+  </main>
+
+</div><!-- /layout -->
+
+<script>
+  function switchTab(btn, paneId) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('pane-' + paneId).classList.add('active');
+  }
+</script>
+
+</body>
+</html>

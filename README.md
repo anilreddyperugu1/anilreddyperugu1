@@ -3,7 +3,7 @@
 
 * 🧑‍💻 Software Engineer at [HCLTech](https://www.hcltech.com/).                                                                                                      
 * 🐍 Proficient in Python/ AI/ML Development.                                                                                                                
-* 📚 Currently diving deep into Advanced ANI Workflows and AGI.                                                                                               
+* 📚 Currently diving deep into Advanced ANI Workflows.                                                                                               
 * 🌐 Visit my [Github Portfolio](https://github.com/anilreddyperugu1?tab=repositories) to explore my projects.                                                
 * 📷 Reach me via [Email](mailto:peruguanilreddy6@gmail.com) or connect on [LinkedIn](https://www.linkedin.com/in/anil-reddy-perugu-aa8a0a36b/).
 * 📍 Based in Hyderabad, India.                  

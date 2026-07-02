@@ -748,6 +748,76 @@
       .tab-btn { padding: 13px 14px; font-size: 12.5px; }
       .stats { grid-template-columns: repeat(2, 1fr); }
     }
+
+    .chat-window{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:380px;
+    height:560px;
+
+    background:white;
+    border-radius:18px;
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
+
+    display:none;
+    flex-direction:column;
+
+    z-index:9999;
+    }
+    
+    .chat-header{
+        background:#4f46e5;
+        color:white;
+        padding:16px;
+        font-weight:bold;
+        display:flex;
+        justify-content:space-between;
+    }
+    
+    .chat-messages{
+        flex:1;
+        overflow-y:auto;
+        padding:15px;
+        background:#fafafa;
+    }
+    
+    .bot-message{
+        background:#eef2ff;
+        padding:12px;
+        border-radius:10px;
+        margin-bottom:12px;
+        line-height:1.6;
+    }
+    
+    .user-message{
+        background:#4f46e5;
+        color:white;
+        padding:12px;
+        border-radius:10px;
+        margin-bottom:12px;
+        text-align:right;
+    }
+    
+    .chat-input-area{
+        display:flex;
+        border-top:1px solid #ddd;
+    }
+    
+    .chat-input-area input{
+        flex:1;
+        border:none;
+        padding:14px;
+        outline:none;
+    }
+    
+    .chat-input-area button{
+        background:#4f46e5;
+        color:white;
+        border:none;
+        padding:0 20px;
+        cursor:pointer;
+    }
   </style>
 </head>
 <body>
@@ -777,7 +847,7 @@
         Download Resume
       </a>
 
-      <button class="btn btn-primary" onclick="alert('Connect your AI chatbot API here!')">
+      <button class="btn btn-primary" onclick="togglechat()">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
         </svg>
@@ -1153,5 +1223,93 @@
 
   window.onload = moveSlider;
 </script>
+  
+<!-- AI Chatbot -->
+<div id="chat-window" class="chat-window">
+
+    <div class="chat-header">
+        🤖 AI Portfolio Assistant
+        <span onclick="toggleChat()" style="cursor:pointer;">✖</span>
+    </div>
+
+    <div id="chat-messages" class="chat-messages">
+        <div class="bot-message">
+            👋 Hi! I'm Anil's AI Assistant.<br><br>
+            Ask me anything about his projects, experience, certifications or skills.
+        </div>
+    </div>
+
+    <div class="chat-input-area">
+        <input
+            id="chat-input"
+            placeholder="Ask something..."
+            onkeydown="if(event.key==='Enter')sendMessage()"
+        >
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+  
+<script>
+const API_URL="https://personal-ai-chatbot-td3n.onrender.com";
+function toggleChat(){
+    const chat=document.getElementById("chat-window");
+
+    chat.style.display=
+        chat.style.display==="flex"
+        ? "none"
+        : "flex";
+}
+
+async function sendMessage(){
+
+    const input=document.getElementById("chat-input");
+
+    const question=input.value.trim();
+
+    if(!question) return;
+
+    const messages=document.getElementById("chat-messages");
+
+    messages.innerHTML+=`
+        <div class="user-message">${question}</div>
+    `;
+
+    input.value="";
+
+    messages.innerHTML+=`
+        <div class="bot-message" id="loading">
+            Thinking...
+        </div>
+    `;
+
+    messages.scrollTop=messages.scrollHeight;
+
+    const response=await fetch(API_URL,{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+            question:question
+        })
+
+    });
+
+    const data=await response.json();
+
+    document.getElementById("loading").remove();
+
+    messages.innerHTML+=`
+        <div class="bot-message">
+            ${data.answer}
+        </div>
+    `;
+
+    messages.scrollTop=messages.scrollHeight;
+}
+</script>              
 </body>
 </html>
